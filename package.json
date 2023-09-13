@@ -1,5 +1,6 @@
 {
   "name": "react-dashboard",
+  "proxy": "http://backend:8084",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -7,10 +7,14 @@ const DataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Replace with your FastAPI endpoint URL
         const fetchData = async () => {
             try {
-                let response = await fetch('http://0.0.0.0:8543/data');
+                console.log("Request out")
+                let response = await fetch('/data');
+                console.log(response)
+                if (!response.ok) {
+                    throw new Error(`Response not OK: ${response.status} ${response.statusText}`);
+                  }
                 let result = await response.json();
                 setData(result);
                 setLoading(false);
